@@ -11,6 +11,13 @@ import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 
+ * Description: to read file or write file 
+ * @author: Sonly
+ * Company: HUST 
+ * @date: 2017年5月13日上午8:51:30
+ */
 public class FileOperator {
 
 	/**

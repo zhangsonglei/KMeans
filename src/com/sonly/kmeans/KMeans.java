@@ -103,9 +103,7 @@ public class KMeans {
 		
 		while(isChanged(thisCenters, newCenters)) {
 			show(newCenters);
-			thisCenters = new double[centers.length][centers[0].length];
 			thisCenters = newCenters;
-			newCenters = new double[centers.length][centers[0].length];
 			newCenters = iterator(dataSet, thisCenters);
 			count++;
 		}

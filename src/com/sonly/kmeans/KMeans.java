@@ -75,13 +75,13 @@ public class KMeans {
 				map.put(index, data);
 			}
 		}
-		
+		double[][] newCenters = new double[centers.length][centers[0].length];
 		for(Integer key : map.keySet()) {
 			double center[][] = map.get(key);
-			centers[key] = CalcUtil.calcCenterPoint(center);
+			newCenters[key] = CalcUtil.calcCenterPoint(center);
 		}
 		
-		return centers;
+		return newCenters;
 	}
 		
 	/**
@@ -103,7 +103,9 @@ public class KMeans {
 		
 		while(isChanged(thisCenters, newCenters)) {
 			show(newCenters);
+			thisCenters = new double[centers.length][centers[0].length];
 			thisCenters = newCenters;
+			newCenters = new double[centers.length][centers[0].length];
 			newCenters = iterator(dataSet, thisCenters);
 			count++;
 		}
@@ -119,12 +121,7 @@ public class KMeans {
 		
 		double[][] dataSet = CalcUtil.stringListToArray(FileOperator.readFile(readFilePath));
 		double[][] centers = initCenters(-5, 5, 4, dataSet[0].length);
-//		double[][] centers ={
-//				{-3.6608,2.3086},
-//				{3.2437,3.04700}, 
-//				{2.5257,-3.1248}, 
-//				{-2.7967,3.1920}
-//		};
+
 		kMeans(dataSet, centers, writeFilePath);
 	}
 	
